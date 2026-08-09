@@ -17,10 +17,17 @@ public class LoginPage {
 
     public void enterPassword(String password) {
         driver.findElement(LoginLocators.PASSWORD).sendKeys(password);
-}
+    }
 
     public void clickLogin() {
         driver.findElement(LoginLocators.LOGIN_BUTTON).click();
+    }
+
+    public void login(String username, String password) {
+        enterUsername(username);
+        enterPassword(password);
+        clickLogin();
+
     }
   
 }

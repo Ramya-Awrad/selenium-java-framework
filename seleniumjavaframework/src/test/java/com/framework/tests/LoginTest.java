@@ -11,9 +11,9 @@ public class LoginTest extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver);
 
-        loginPage.enterUsername("standard_user");
-        loginPage.enterPassword("secret_sauce");
-        loginPage.clickLogin(); 
+        loginPage.login("standard_user", "secret_sauce");
     }
+
+    
 }
 

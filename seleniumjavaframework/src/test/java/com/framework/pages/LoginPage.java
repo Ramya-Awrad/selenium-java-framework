@@ -3,24 +3,22 @@ package com.framework.pages;
 import org.openqa.selenium.WebDriver;
 import com.framework.locators.LoginLocators;
 
-public class LoginPage {
-
-    private WebDriver driver;
+public class LoginPage extends BasePage{
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void enterUsername(String username) {
-        driver.findElement(LoginLocators.USERNAME).sendKeys(username);
+        sendKeys(LoginLocators.USERNAME, username);
     }
 
     public void enterPassword(String password) {
-        driver.findElement(LoginLocators.PASSWORD).sendKeys(password);
+        sendKeys(LoginLocators.PASSWORD, password);
     }
 
     public void clickLogin() {
-        driver.findElement(LoginLocators.LOGIN_BUTTON).click();
+        click(LoginLocators.LOGIN_BUTTON);
     }
 
     public void login(String username, String password) {

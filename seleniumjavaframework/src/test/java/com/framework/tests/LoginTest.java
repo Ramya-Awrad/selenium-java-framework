@@ -4,7 +4,8 @@ import org.testng.annotations.Test;
 import com.framework.pages.LoginPage;
 
 public class LoginTest extends BaseTest {
-     @Test
+    
+    @Test
     public void loginTest() {
 
         driver.get("https://www.saucedemo.com/");

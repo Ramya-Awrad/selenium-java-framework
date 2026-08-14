@@ -26,6 +26,7 @@ public class LoginTest extends BaseTest {
 
         loginPage.login("standard_user", "secret_sauce");
         logger.info("Login completed successfully");
+        
     }
 
     

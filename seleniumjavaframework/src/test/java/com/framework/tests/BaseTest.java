@@ -7,6 +7,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import com.framework.utils.ConfigReader;
+import org.testng.ITestResult;
+import com.framework.utils.ScreenshotUtil;
 
 public class BaseTest {
 
@@ -30,7 +32,17 @@ public class BaseTest {
 }
 
     @AfterMethod
-    public void tearDown() {
+    public void tearDown(ITestResult result) {
+
+        if (result.getStatus() == ITestResult.FAILURE) {
+
+            ScreenshotUtil.captureScreenshot(
+                driver,
+                result.getMethod().getMethodName()
+            );
+        }
+    
+
         if (driver != null) {
             driver.quit();
         }

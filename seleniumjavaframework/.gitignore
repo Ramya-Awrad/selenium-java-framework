@@ -17,4 +17,7 @@ target/
 .vscode/
 
 # Logs
-*.log
+logs/
+
+# screenshots 
+screenshots/

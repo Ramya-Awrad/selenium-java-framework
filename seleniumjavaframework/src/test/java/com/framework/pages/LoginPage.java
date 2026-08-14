@@ -3,29 +3,33 @@ package com.framework.pages;
 import org.openqa.selenium.WebDriver;
 import com.framework.locators.LoginLocators;
 
+import com.framework.utils.WaitUtils;
+
 public class LoginPage extends BasePage{
+
+    private WaitUtils waitUtils;
 
     public LoginPage(WebDriver driver) {
         super(driver);
+        this.waitUtils = new WaitUtils(driver);
     }
 
     public void enterUsername(String username) {
-        sendKeys(LoginLocators.USERNAME, username);
+        this.waitUtils.waitForElementVisible(LoginLocators.USERNAME).sendKeys(username);
     }
 
     public void enterPassword(String password) {
-        sendKeys(LoginLocators.PASSWORD, password);
+        this.waitUtils.waitForElementVisible(LoginLocators.PASSWORD).sendKeys(password);
     }
 
     public void clickLogin() {
-        click(LoginLocators.LOGIN_BUTTON);
+        this.waitUtils.waitForElementClickable(LoginLocators.LOGIN_BUTTON).click();
     }
 
     public void login(String username, String password) {
         enterUsername(username);
         enterPassword(password);
         clickLogin();
-
     }
   
 }

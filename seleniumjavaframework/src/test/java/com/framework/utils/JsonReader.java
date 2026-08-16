@@ -5,16 +5,17 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 public class JsonReader {
 
-    public static Map<String, String> readJson(String filePath) throws IOException {
+    public static List<Map<String, String>> readJson(String filePath) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         return mapper.readValue(
         new File(filePath),
-        new TypeReference<Map<String, String>>() {}
+        new TypeReference<List<Map<String, String>>>() {}
 );
     }
 }

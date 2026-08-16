@@ -1,6 +1,7 @@
 package com.framework.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +13,8 @@ public class JsonReader {
         ObjectMapper mapper = new ObjectMapper();
 
         return mapper.readValue(
-                new File(filePath),
-                Map.class
-        );
+        new File(filePath),
+        new TypeReference<Map<String, String>>() {}
+);
     }
 }

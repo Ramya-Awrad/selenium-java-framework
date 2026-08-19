@@ -1,5 +1,6 @@
 # Maven
 target/
+allure-results/
 
 # Compiled Java files
 *.class

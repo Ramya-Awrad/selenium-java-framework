@@ -36,7 +36,7 @@ public class LoginTest extends BaseTest {
         return testData;
     }
     
-    @Test(dataProvider = "loginData")
+    @Test(dataProvider = "loginData", groups = {"smoke"})
     public void loginTest(String username, String password) {
 
         logger.info("Starting login test");

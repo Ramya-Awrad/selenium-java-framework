@@ -14,9 +14,9 @@ public class BaseTest {
 
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
-
+        System.out.println("===== SETUP STARTED =====");
         String browser = ConfigReader.get("browser");
 
         if (browser.equalsIgnoreCase("chrome")) {
@@ -27,11 +27,11 @@ public class BaseTest {
             throw new IllegalArgumentException(
                     "Unsupported browser: " + browser);
         }
-
+        System.out.println("===== DRIVER CREATED: " + driver + " =====");
         driver.manage().window().maximize();
 }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
 
         if (result.getStatus() == ITestResult.FAILURE) {
